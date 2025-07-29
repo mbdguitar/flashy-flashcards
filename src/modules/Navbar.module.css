@@ -1,0 +1,18 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 115px;
+    width: 100%;
+    background: #7DB299;
+}
+
+.navbar img {
+    height: 80px;
+    margin: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        justify-content: center;
+    }
+}

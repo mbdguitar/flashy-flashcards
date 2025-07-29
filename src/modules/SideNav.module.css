@@ -1,0 +1,76 @@
+.sidenav {
+    font-family: Lato, sans-serif;
+    width: 25%;
+    min-width: 300px;
+    background: #EEE;
+}
+
+.sidenav ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidenav li {
+    padding: 0.5em 2em;
+}
+
+.sidenav li:hover {
+    background: #A1E5C5;
+    color: #FFF;
+}
+
+.sidenav li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sidenav li a:active {
+    color: #FFF;
+}
+
+.sidenav form  {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.sidenav form select {
+    background: #FFF;
+    color: black;
+    cursor: pointer;
+    border-radius: 20px;
+    border: none;
+    height: 2em;
+    width: 100%;
+    font-size: 24px;
+    margin: 1rem;
+    padding-left: 20px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+@media screen and (max-width: 768px) {
+    .sidenav {
+        min-width: auto;
+        max-width: none;
+        width: 100vw;
+        background: #EEE;
+    }
+
+    .sidenav li {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .sidenav li {
+        font-size: 16px;
+    }
+
+    .sidenav form select {
+        font-size: 20px;
+    }
+}
