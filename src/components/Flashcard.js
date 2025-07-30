@@ -1,14 +1,16 @@
+import { useSelector } from 'react-redux';
 import styles from '../modules/Flashcard.module.css';
 
 function Flashcard() {
-    const flashcardContent = {
-        title: 'What does ‘TypeError’ mean in JavaScript?',
-        content: 'In JavaScript, a TypeError signifies that an operation cannot be performed because the value involved is not of the expected or compatible type for that operation. It indicates a mismatch between the type of data being used and the operation being attempted'
-    }
+    const stacks = useSelector((state) => state.stacks);
+    const currentStackId = useSelector((state) => state.currentStack)
+    const currentFlashcardId = useSelector((state) => state.currentFlashcard);
+    const currentFlashcard = stacks.byId[currentStackId].flashcards.find((card) => card.id === currentFlashcardId);
+
     return (
         <div className={styles.flashcard}>
-            <h1>{flashcardContent.title}</h1>
-            <p>{flashcardContent.content}</p>
+            {currentFlashcard ? <h1>{currentFlashcard.title}</h1> : null}
+            {currentFlashcard ? <p>{currentFlashcard.text}</p> : null}
         </div>
     );
 }

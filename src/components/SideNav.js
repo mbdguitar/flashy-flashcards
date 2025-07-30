@@ -1,17 +1,40 @@
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentFlashcard } from '../features/currentFlashcard/currentFlashcardSlice';
+import { setCurrentStack } from '../features/currentStack/currentStackSlice';
 import styles from '../modules/SideNav.module.css';
 
 function SideNav() {
+    const stacks = useSelector((state) => state.stacks);
+    const currentStackId = useSelector((state) => state.currentStack);
+    const currentStack = stacks.byId[currentStackId];
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setCurrentFlashcard(currentStack.flashcards[0].id))
+    }, [currentStackId, currentStack.flashcards, dispatch])
+
     return (
         <nav className={styles.sidenav}>
             <form>
-                <select>
-                    <option>Javascript</option>
+                <select onChange={(e) => dispatch(setCurrentStack(e.target.value))}>
+                    {stacks.allIds.map((id) => {
+                        return (
+                            <option value={id} key={id}>
+                                {stacks.byId[id].name}
+                            </option>
+                        )
+                    })}
                 </select>
             </form>
            <ul>
-                <li><a href="/">What does TypeError mean?</a></li>
-                <li><a href="/">What does SyntaxError mean?</a></li>
-                <li><a href="/">What does ReferenceError mean?</a></li>
+                {currentStack.flashcards.map((card) => {
+                    return <li key={card.id}>
+                        <button onClick={() => dispatch(setCurrentFlashcard(card.id))}>
+                            {card.title}
+                        </button>
+                    </li>
+                })}
             </ul> 
         </nav>
     )

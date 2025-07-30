@@ -12,22 +12,21 @@
     padding: 0;
 }
 
-.sidenav li {
-    padding: 0.5em 2em;
-}
-
 .sidenav li:hover {
     background: #A1E5C5;
     color: #FFF;
 }
 
-.sidenav li a {
-    text-decoration: none;
+.sidenav li button {
+    padding: 0 1em;
+    text-align: left;
+    cursor: pointer;
+    border: none;
+    height: 2.5em;
+    font-size: 16px;
+    width: 100%;
+    background-color: inherit;
     color: inherit;
-}
-
-.sidenav li a:active {
-    color: #FFF;
 }
 
 .sidenav form  {
