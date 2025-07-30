@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentFlashcard } from '../features/currentFlashcard/currentFlashcardSlice';
 import { setCurrentStack } from '../features/currentStack/currentStackSlice';
+import AddStackButton from './AddStackButton';
 import styles from '../modules/SideNav.module.css';
 
 function SideNav() {
@@ -11,27 +12,32 @@ function SideNav() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setCurrentFlashcard(currentStack.flashcards[0].id))
+        if (currentStack.flashcards.length > 0) {
+            dispatch(setCurrentFlashcard(currentStack.flashcards[0].id))
+        }
     }, [currentStackId, currentStack.flashcards, dispatch])
 
     return (
         <nav className={styles.sidenav}>
-            <form>
-                <select onChange={(e) => dispatch(setCurrentStack(e.target.value))}>
-                    {stacks.allIds.map((id) => {
-                        return (
-                            <option value={id} key={id}>
-                                {stacks.byId[id].name}
-                            </option>
-                        )
-                    })}
-                </select>
-            </form>
+            <div className={styles.stack_container}>
+                <form>
+                    <select id='stack' name='stack' onChange={(e) => dispatch(setCurrentStack(e.target.value))}>
+                        {stacks.allIds.map((id) => {
+                            return (
+                                <option value={id} key={id}>
+                                    {stacks.byId[id].name}
+                                </option>
+                            )
+                        })}
+                    </select>
+                </form>
+                <AddStackButton />
+            </div>
            <ul>
                 {currentStack.flashcards.map((card) => {
                     return <li key={card.id}>
                         <button onClick={() => dispatch(setCurrentFlashcard(card.id))}>
-                            {card.title}
+                            <span>{card.title}</span>
                         </button>
                     </li>
                 })}

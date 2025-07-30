@@ -28,11 +28,11 @@ function QuestionMenu() {
     return (
         <div className={styles.question_menu}>
             <button aria-label="Previous Question" onClick={handlePreviousQuestion}>
-                <img src={button_back} alt="previous question"/>
+                <img src={button_back} alt="previous question" width='50'/>
             </button>
             <p>{`${currentFlashcardIndex + 1} | ${allFlashcards.length}`}</p>
             <button aria-label="Next Question" onClick={handleNextQuestion}>
-                <img src={button_next} alt="next"/>
+                <img src={button_next} alt="next question" width='50'/>
             </button>
         </div>
     )

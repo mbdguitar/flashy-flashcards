@@ -2,9 +2,15 @@ import { configureStore } from '@reduxjs/toolkit';
 import currentFlashcardReducer from '../features/currentFlashcard/currentFlashcardSlice';
 import currentStackReducer from '../features/currentStack/currentStackSlice';
 import stacksReducer from '../features/stacks/stacksSlice';
+import isModalActiveReducer from '../features/isModalActive/isModalActiveSlice';
+import modalMenuTypeReducer from '../features/modalMenuType/modalMenuTypeSlice';
+import countersReducer from '../features/counters/countersSlice';
 
 const store = configureStore({
     reducer: {
+        isModalActive: isModalActiveReducer,
+        modalMenuType: modalMenuTypeReducer,
+        counters: countersReducer,
         currentStack: currentStackReducer,
         currentFlashcard: currentFlashcardReducer,
         stacks: stacksReducer,

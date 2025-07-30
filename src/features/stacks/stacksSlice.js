@@ -6,7 +6,8 @@ export const stacksSlice = createSlice({
     initialState: mockupStacks.stacks,
     reducers: {
         createStack: (state, action) => {
-            state.push(action.payload);
+            state.byId[action.payload.id] = action.payload;
+            state.allIds.push(action.payload.id);
         },
         deleteStack: (state, action) => {
             return state.filter((stack) => stack === action.payload.stackName);

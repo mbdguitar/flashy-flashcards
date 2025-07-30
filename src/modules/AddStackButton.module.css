@@ -1,0 +1,9 @@
+.add_stack_button button {
+    height: 50px;
+    width: 50px;
+    background-color: #FFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}

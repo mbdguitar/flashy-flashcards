@@ -20,6 +20,7 @@
 .sidenav li button {
     padding: 0 1em;
     text-align: left;
+    text-overflow: ellipsis;
     cursor: pointer;
     border: none;
     height: 2.5em;
@@ -29,6 +30,19 @@
     color: inherit;
 }
 
+.sidenav li button span{
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+}
+
+
+.stack_container {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
 .sidenav form  {
     display: flex;
     justify-content: center;
@@ -36,16 +50,14 @@
 }
 
 .sidenav form select {
+    width: 100%;
+    padding: 0 20px;
     background: #FFF;
     color: black;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
-    height: 2em;
-    width: 100%;
     font-size: 24px;
-    margin: 1rem;
-    padding-left: 20px;
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
