@@ -2,7 +2,6 @@
     font-family: Lato, sans-serif;
     width: 25%;
     min-width: 300px;
-    background: #EEE;
 }
 
 .sidenav ul {
@@ -12,35 +11,47 @@
     padding: 0;
 }
 
-.sidenav li:hover {
-    background: #A1E5C5;
-    color: #FFF;
+.sidenav li {
+    padding: 0 20px;
+    margin: 1px 0;
+    width: auto;
 }
 
 .sidenav li button {
-    padding: 0 1em;
+    font-family: 'Lexend', sans-serif;
+    border-radius: 10px;
     text-align: left;
     text-overflow: ellipsis;
     cursor: pointer;
     border: none;
     height: 2.5em;
     font-size: 16px;
-    width: 100%;
     background-color: inherit;
     color: inherit;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+
+.sidenav li button:hover {
+    background: #EEEEEE;
+    transition: 0.2s;
+}
+
+.sidenav li button:active {
+    background: #EEEEEE;
 }
 
 .sidenav li button span{
-    overflow-wrap: break-word;
-    text-overflow: ellipsis;
+    padding: 5px;
 }
-
 
 .stack_container {
     margin: 20px;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
 }
 
 .sidenav form  {
@@ -50,6 +61,7 @@
 }
 
 .sidenav form select {
+    font-family: 'Lexend', sans-serif;
     width: 100%;
     padding: 0 20px;
     background: #FFF;
@@ -63,14 +75,19 @@
     -webkit-appearance: none;
 }
 
-@media screen and (max-width: 768px) {
+.current_flashcard {
+    background-color: #EEEEEE;
+}
+
+@media screen and (orientation: portrait) {
     .sidenav {
         min-width: auto;
         max-width: none;
         width: 100vw;
-        background: #EEE;
     }
+}
 
+@media screen and (max-width: 768px) {
     .sidenav li {
         font-size: 20px;
     }

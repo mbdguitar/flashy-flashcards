@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurrentFlashcard } from '../features/currentFlashcard/currentFlashcardSlice';
 import { setCurrentStack } from '../features/currentStack/currentStackSlice';
-import AddStackButton from './AddStackButton';
+import AddButton from './AddButton';
 import styles from '../modules/SideNav.module.css';
 
 function SideNav() {
@@ -31,7 +31,7 @@ function SideNav() {
                         })}
                     </select>
                 </form>
-                <AddStackButton />
+                <AddButton />
             </div>
            <ul>
                 {currentStack.flashcards.map((card) => {

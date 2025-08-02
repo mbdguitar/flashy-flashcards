@@ -12,8 +12,11 @@ export const stacksSlice = createSlice({
         deleteStack: (state, action) => {
             return state.filter((stack) => stack === action.payload.stackName);
         },
+        createFlashcard: (state, action) => {
+            state.byId[action.payload.stackId].flashcards.push(action.payload.flashcard)
+        }
     }
 });
 
-export const { createStack, deleteStack } = stacksSlice.actions;
+export const { createStack, deleteStack, createFlashcard } = stacksSlice.actions;
 export default stacksSlice.reducer;
