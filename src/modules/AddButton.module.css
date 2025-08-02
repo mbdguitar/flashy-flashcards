@@ -1,4 +1,4 @@
-.add_stack_button button {
+.add_button button {
     height: 50px;
     width: 50px;
     background-color: #FFF;
@@ -6,4 +6,9 @@
     border-radius: 10px;
     cursor: pointer;
     font-size: 24px;
+}
+
+.add_button button:hover {
+    background-color: #f5f5f5;
+    transition: 0.1s;
 }

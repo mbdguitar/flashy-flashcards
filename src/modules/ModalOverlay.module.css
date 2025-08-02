@@ -9,4 +9,12 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    font-family: "Lexend", sans-serif;
+}
+
+.modal_container {
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: inherit;
+    max-width: 700px;
 }

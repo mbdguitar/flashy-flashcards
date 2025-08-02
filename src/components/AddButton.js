@@ -1,24 +1,23 @@
 import { useDispatch } from 'react-redux';
 import { activateModal } from '../features/isModalActive/isModalActiveSlice';
 import { setModalMenuType } from '../features/modalMenuType/modalMenuTypeSlice';
-import styles from '../modules/AddStackButton.module.css'
+import styles from '../modules/AddButton.module.css'
 
-function AddStackButton() {
-    const modalType = 'addStack';
+function AddButton() {
     const dispatch = useDispatch();
 
-    function handleModalDisplay () {
+    function handleModalDisplay (type) {
         dispatch(activateModal());
-        dispatch(setModalMenuType(modalType));
+        dispatch(setModalMenuType(type));
     }
 
     return (
-        <div className={styles.add_stack_button} onClick={handleModalDisplay}>
-            <button>
+        <div className={styles.add_button} >
+            <button onClick={() => handleModalDisplay('choiceMenu')}>
                 +
             </button>
         </div>
     )
 }
 
-export default AddStackButton;
+export default AddButton;

@@ -8,7 +8,7 @@ import styles from '../modules/AddStackModalMenu.module.css';
 
 function AddStackModalMenu() {
     //local state
-    const [ title, setTitle ] = useState('');
+    const [ name, setName ] = useState('');
 
     //global state
     const dispatch = useDispatch();
@@ -22,12 +22,13 @@ function AddStackModalMenu() {
 
 
     function handleSubmit(e) {
+        const defaultFlashcard = {id: 'default', title: "Add a new flashcard", text: "To add a new flashcard, click on the 'add' button, select 'add flashcard' and enter the content of the"}
         e.preventDefault()
-        if (title) {
+        if (name) {
             const payload = {
             id: `${'stack' + stackCounter}`,
-            name: title,
-            flashcards: []
+            name: name,
+            flashcards: [defaultFlashcard]
         };
         dispatch(increaseStackCounter());
         dispatch(createStack(payload));
@@ -37,12 +38,13 @@ function AddStackModalMenu() {
 
     return (
         <div className={styles.add_stack_modal}>
-            <button onClick={toggleModal}>X</button>
             <h2>Add Stack</h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="stack_title">Title</label>
-                <input id="stack_title" type="text" placeholder="Enter title here" value={title} onChange={(e) => setTitle(e.target.value)}></input>
-                <input type="submit" value="add"/>
+                <div className={styles.stack_name_input}>
+                    <label htmlFor="stack_title">Title</label>
+                    <input id="stack_title" type="text" placeholder="Enter title here" value={name} onChange={(e) => setName(e.target.value)}></input>
+                </div>
+                <input className={styles.submit_button} type="submit" value="Add"/>
             </form>
         </div>
     )

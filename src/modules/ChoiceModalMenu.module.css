@@ -1,0 +1,45 @@
+.choice_menu {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    padding: 25px;
+    z-index: 2000;
+    width: fit-content;
+}
+
+.choice_menu button {
+    font-family: 'Lexend', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    width: 250px;
+    height: 250px;
+    background-color: #FFFFFF;
+}
+
+.choice_menu button:hover {
+    background-color: #f8f8f8;
+}
+
+.choice_menu img {
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.choice_menu span {
+    font-size: 32px;
+}
+
+@media screen and (orientation: portrait) {
+    .choice_menu {
+        flex-direction: column;
+    }
+}
